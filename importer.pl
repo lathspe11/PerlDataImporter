@@ -17,7 +17,7 @@ my $importFile = $datapath . 'initdata.txt';
 #Every program needs a usage statement to educate users on syntax
 sub usageMsg {
 	print "you're doing it wrong.\n";
-	print "importer.py [import-file-path]* \n";
+	print "importer.pl [import-file-path]* \n";
 }
 
 #easy debug message routine
@@ -97,14 +97,15 @@ sub readImport{
 my $latest = $ARGV[0];
 if (defined $latest) {
 	#Open the default 
+	print "Open file $latest \n";
 	readImport($latest);
+}else {
+	readImport($importFile);
 }
-readImport($importFile);
-	
 
 #In a real system we would move the original file aside as history
 #storeHist(latest)
 
 
 
-print 'Program Completed\n';
+print "Program Completed\n";
